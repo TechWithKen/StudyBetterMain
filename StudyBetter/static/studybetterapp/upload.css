@@ -1,0 +1,125 @@
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px;
+  }
+  .heading-name{
+    background-color: #340854;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .upload-section {
+    text-align: center;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .upload-section h3 {
+    font-size: 1.8em;
+    color: #6a0dad;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    color: #6a0dad;
+    text-align: center;
+    font-size: 2em;
+  }
+
+  .navbar p {
+    font-size: 0.9em; 
+    color: #6a0dad;  
+    font-weight: bold;
+    margin: 10px 0; 
+    text-align: center; 
+    animation: blink 1.5s infinite; /* Blinking animation */
+  }
+
+  label {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #6a0dad;
+  }
+
+  input[type="file"],
+  input[type="text"] {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1em;
+    display: none; /* Hide file input */
+  }
+
+  .file-name {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #333;
+  }
+
+  .btn-upload {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .btn-upload:hover {
+    background-color: transparent;
+    color: #6a0dad;
+    border: 2px solid #6a0dad;
+
+  }
+  .options-upload{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .back-link {
+    color: #b39ddb;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s;
+  }
+
+  .back-link:hover {
+    color: #6a0dad;
+  }
+
+  /* Add blinking effect */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column; 
+      align-items: flex-start;
+    }
+
+    .upload-section {
+      max-width: 90%;
+      padding: 0 10px;
+    }
+  }

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'studybetterapp/login.css' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'studybetterapp/images/studybetter.png' %}">
+    <script src="{% static 'studybetterapp/script/login.js' %}" defer></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Welcome Back</h2>
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <p>Please log in to continue</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" id="username" name='username' placeholder="Enter your username" required>
+        
+            <input type="password" id="password" name='password' placeholder="Enter your password" required>
+            <a class="forgotten-password" href="#">Forgotten Password?</a>
+            
+            <input type="submit" id="submitlogin" class="submit-btn" placeholder="Log In">
+        <div class="separator">OR</div>
+        <button class="google-login">
+            <img src="{% static 'studybetterapp/images/googlelogo.svg' %}" alt="Google Logo" class="google-logo"> 
+            Sign in with Google
+        </button>
+        </form>
+        
+        
+        <div class="links">
+            <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>

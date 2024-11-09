@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'studybetterapp/images/studybetter.png' %}">
+  <title>Dashboard</title>
+  <link href="{% static 'studybetterapp/dashboard.css' %}" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <h2>Study Better Dashboard</h2>
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+    <div class="nav-links" id="navLinks">
+      <a href="{% url 'upload' %}">Upload Materials</a>
+      <a href="{% url 'dashboard' %}">View Predictions</a>
+      <a href="{% url 'index' %}">Log Out</a>
+    </div>
+  </nav>
+  <section class="dashboard-content">
+    <h3>Welcome!</h3>
+    <p>Upload your materials to get summarized study materials, and personalized exam questions!</p>
+    <div class="actions">
+      <button onclick="location.href='{% url 'upload' %}'" class="btn-action">Upload Materials</button>
+    </div>
+  </section>
+  <script src="{% static 'studybetterapp/script/dashboard.js' %}"></script>
+</body>
+</html>

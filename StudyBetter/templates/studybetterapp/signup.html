@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'studybetterapp/images/studybetter.png' %}">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'studybetterapp/signup.css' %}">
+
+</head>
+<body>
+  {% load socialaccount %}
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+    <p>Welcome! Please create an account to continue.</p>
+    
+    <!-- Sign up with Google -->
+    <a href="{% provider_login_url 'google' %}?next={% url 'dashboard' %}" class="google-signup">
+      <img src="{% static 'studybetterapp/images/googlelogo.svg' %}" alt="Google Logo" class="google-logo">
+      Sign up with Google
+    </a>
+    
+    <div class="separator">OR</div>
+    <form id="signup-form" method="post" action="">
+      {% csrf_token %}
+      {{ form.as_p }}  <!-- Render Django form -->
+      
+      <!-- Remove these additional fields if {{ form.as_p }} includes them -->
+      <label for="Username">Username</label>
+      <input type="text" id="Username" name="username" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required> <!-- Corrected name -->
+  
+      <label for="password">Password:</label>
+      <div class="password-container">
+          <input type="password" id="password" name="password" required>
+          <label class="show-password-label">
+              <input type="checkbox" id="showPassword"> Show
+          </label>
+      </div>
+  
+      <label for="confirm-password">Confirm Password:</label>
+      <div class="password-container">
+          <input type="password" id="confirm-password" name="confirm_password" required>
+          <label class="show-password-label">
+              <input type="checkbox" id="showConfirmPassword"> Show
+          </label>
+      </div>
+  
+      <p class="warning-message" id="warning-message"></p>
+      <p class="warning-message" id="warning-message-name"></p>
+  
+      <input type="submit" class="submit-btn">
+    </form>
+    
+  </div>
+  <script src="{% static 'studybetterapp/script/signup.js' %}" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+

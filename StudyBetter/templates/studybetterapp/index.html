@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Better</title>
+  <link rel="stylesheet" href="{% static 'studybetterapp/index.css' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'studybetterapp/images/studybetter.png' %}">
+  
+</head>
+<body>
+  <header class="landing-header">
+    <h1>Welcome to Study Better</h1>
+    <p id="animated-text"></p>
+    
+   
+    <div class="gemini-oval"></div>
+
+    <div class="buttons">
+      <button onclick="location.href='{% url 'login' %}'" class="btn-login">Log In</button>
+
+      <button onclick="location.href='{% url 'signup' %}'" class="btn-login">Sign Up</button>
+
+    </div>
+  </header>
+  <script src="{% static 'studybetterapp/script/index.js' %}"></script>
+</body>
+</html>

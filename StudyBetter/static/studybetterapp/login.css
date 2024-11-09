@@ -1,0 +1,134 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1c1b29; /* Dark background for the body */
+    color: #f3f3f3; /* Light text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    margin: 2em;
+    display: flex;
+    flex-direction: column; /* Align elements vertically */
+    align-items: center; /* Center items horizontally */
+    background-color: #2a2335; /* Darker container for contrast */
+    padding: 30px; /* Increased padding for a more spacious layout */
+    border-radius: 10px;
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Max width for larger screens */
+    box-shadow: 0 4px 15px rgba(128, 0, 128, 0.6);
+    text-align: center; /* Center text */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.login-container:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #b39ddb;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #d1c4e9; /* Fixed missing semicolon */
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #4a148c;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 15px;
+    background-color: transparent;
+    color: #f3e5f5;
+    outline: none;
+    width: 100%; /* Full width for input fields */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+.submit-btn {
+    background-color: #4a148c;
+    color: #fff;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width for button */
+}
+
+.submit-btn:hover {
+    background-color: transparent;
+    border: 2px solid  #4a148c/* Darker purple on hover */
+}
+
+.separator {
+    margin: 10px 0; /* Space around the separator */
+    font-weight: bold;
+    color: #d1c4e9; /* White color for separator text */
+}
+
+.google-login {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centering content inside button */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 auto; /* Center the button itself */
+    width: 100%; /* Full width for Google button */
+}
+
+.google-login:hover {
+    background-color: #e8e8e8; /* Darker red on hover */
+}
+
+.google-logo {
+    width: 20px; /* Adjust logo size */
+    height: 20px; /* Adjust logo size */
+    margin-right: 5px; /* Space between logo and text */
+}
+
+.links {
+    margin-top: 15px; /* Space above the links */
+}
+.forgotten-password{
+    text-decoration: none;
+    color: #6200ea;
+    margin-bottom: 10px;
+}
+.links a {
+    color: #6200ea; /* Link color */
+    text-decoration: none;
+}
+.links a:hover{
+    color: #d1c4e9
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Slightly smaller heading */
+    }
+
+    .submit-btn,
+    .google-login {
+        font-size: 14px; /* Adjust button font size */
+    }
+}

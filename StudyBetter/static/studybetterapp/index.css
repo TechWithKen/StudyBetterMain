@@ -1,0 +1,143 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1c1b29;
+    color: #f3e5f5;
+  }
+  
+  .landing-header {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    color: #b39ddb;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.2em;
+    color: #d1c4e9;
+  }
+  
+  /* Gemini-Inspired Oval Animation */
+  .gemini-oval {
+    width: 20vw;
+    max-width: 120px;
+    height: 13vw;
+    max-height: 80px;
+    border-radius: 100%;
+    background: linear-gradient(135deg, #8e24aa, #4a148c, #7b1fa2, #6a1b9a);
+    background-size: 300%;
+    animation: gemini-spin 4s infinite linear, color-shift 6s infinite ease-in-out;
+    margin: 20px auto 40px;
+    box-shadow: 0 4px 15px rgba(128, 0, 128, 0.6);
+  }
+  
+  @keyframes gemini-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes color-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Button Styles */
+  .buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-login {
+    background-color: #4a148c;
+    color: #fff;
+  }
+  
+  .btn-login:hover {
+    background-color: transparent;
+    border: 2px solid  #4a148c;
+  }
+  
+  .btn-signup {
+    background-color: #4a148c;
+    color: #fff;
+  }
+  
+  .btn-signup:hover {
+    background-color: transparent;
+    border: 2px solid  #4a148c;
+  }
+  #animated-text {
+    font-size: 1.2em;
+    color: #d1c4e9;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2em;
+    }
+    
+    p {
+      font-size: 1em;
+    }
+    
+    .gemini-oval {
+      width: 30vw;
+      height: 20vw;
+    }
+  
+    button {
+      font-size: 0.9em;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.8em;
+    }
+  
+    p {
+      font-size: 0.9em;
+    }
+  
+    .gemini-oval {
+      width: 35vw;
+      height: 25vw;
+    }
+  
+    button {
+      font-size: 0.8em;
+      padding: 6px 12px;
+      width: 100%;
+    }
+  }
+  

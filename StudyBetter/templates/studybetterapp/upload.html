@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'studybetterapp/images/studybetter.png' %}">
+  <title>Upload Materials</title>
+  <link rel="stylesheet" href="{% static 'studybetterapp/upload.css' %}">
+  <script src="{% static 'studybetterapp/script/upload.js' %}"></script>
+</head>
+<body>
+  <div class="heading-name">
+    <h1>STUDY BETTER</h1>
+  </div>
+  <nav class="navbar">
+    <a href="{% url 'dashboard' %}" class="back-link">Back to Dashboard</a>
+    <p>Note: Please collate all materials and past questions into a single PDF file</p>
+  </nav>
+  <section class="upload-section">
+    <h3>Upload Study Materials</h3>
+    <form id="uploadForm">
+      <label for="courseMaterial">Lecture Material (PDF):</label>
+      <span class="uploading-image">
+        <img src="{% static 'studybetterapp/images/upload.svg' %}" alt="uploading" class="upload-logo" onclick="document.getElementById('courseMaterial').click();">
+        <input type="file" id="courseMaterial" accept=".pdf" onchange="updateFileName('courseMaterial', 'courseMaterialName');">
+      </span>
+      <div id="courseMaterialName" class="file-name"></div>
+      
+      <label for="pastQuestions">Past Exam Questions (PDF):</label>
+      <span class="uploading-image">
+        <img src="{% static 'studybetterapp/images/upload.svg' %}" alt="uploading" class="upload-logo" onclick="document.getElementById('pastQuestions').click();">
+        <input type="file" id="pastQuestions" accept=".pdf" onchange="updateFileName('pastQuestions', 'pastQuestionsName');">
+      </span>
+      <div id="pastQuestionsName" class="file-name"></div>
+      
+      <div class="options-upload">
+        <button type="button" onclick="downloadPDF()" class="btn-upload">Summarize</button>
+        <button type="submit" class="btn-upload">Predict Exam Question</button>
+      </div>
+      
+    </form>
+  </section>
+</body>
+</html>
