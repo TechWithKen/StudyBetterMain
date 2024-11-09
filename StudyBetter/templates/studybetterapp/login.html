@@ -18,7 +18,7 @@
             {% endfor %}
         {% endif %}
         <p>Please log in to continue</p>
-        <form action="" method="post">
+        <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
             <input type="text" id="username" name='username' placeholder="Enter your username" required>
         

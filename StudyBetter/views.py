@@ -1,7 +1,7 @@
-from django.contrib.auth import authenticate, login, logout, get_backends
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.db import IntegrityError
+from django.db import IntegrityError  # remove it if you are not using it.
 from django.contrib.auth.models import User
 
 def index(request):
@@ -26,8 +26,8 @@ def signup(request):
             # Authenticate the user without specifying the backend instance directly
             user = authenticate(username=username, password=password)
             if user is not None:
-                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            return redirect('login')
+                login(request, user)
+            return redirect('dashboard')
         else:
             return render(request, 'studybetterapp/signup.html', {'error': 'Passwords do not match'})
     else:

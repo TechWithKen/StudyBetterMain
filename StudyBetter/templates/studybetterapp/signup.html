@@ -22,7 +22,7 @@
     </a>
     
     <div class="separator">OR</div>
-    <form id="signup-form" method="post" action="">
+    <form id="signup-form" method="post" action="{% url 'signup' %}">
       {% csrf_token %}
       {{ form.as_p }}  <!-- Render Django form -->
       
