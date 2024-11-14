@@ -38,9 +38,9 @@ def read_docx(file_path):
 
 def read_file(file_path):
     """Determine file type and read content accordingly."""
-    if file_path.endswith('.pdf'):
+    if file_path.name.endswith('.pdf'):
         return read_pdf(file_path)
-    elif file_path.endswith('.docx'):
+    elif file_path.name.endswith('.docx'):
         return read_docx(file_path)
     else:
         raise ValueError("Unsupported file type. Please use PDF or DOCX.")

@@ -20,8 +20,8 @@ def dashboard(request):
 def upload(request):
     
     if request.method == 'POST' and request.FILES:
-        course_material = request.FILES.get('courseMaterial')
-        past_questions = request.FILES.get('pastQuestions')
+        course_material = request.FILES['courseMaterial']
+        past_questions = request.FILES['pastQuestions']
         course_material_string = get_content(course_material)
         past_questions_string = get_content(past_questions)
 

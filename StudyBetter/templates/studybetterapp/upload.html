@@ -20,19 +20,19 @@
   </nav>
   <section class="upload-section">
     <h3>Upload Study Materials</h3>
-    <form id="uploadForm" method="post" enctype="multipart/form-data">
+    <form id="uploadForm" action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <label for="courseMaterial">Lecture Material (PDF):</label>
       <span class="uploading-image">
         <img src="{% static 'studybetterapp/images/upload.svg' %}" alt="uploading" class="upload-logo" onclick="document.getElementById('courseMaterial').click();">
-        <input type="file" id="courseMaterial" accept=".pdf" onchange="updateFileName('courseMaterial', 'courseMaterialName');">
+        <input type="file" id="courseMaterial" name="courseMaterial" accept=".pdf" onchange="updateFileName('courseMaterial', 'courseMaterialName');">
       </span>
       <div id="courseMaterialName" class="file-name"></div>
       
       <label for="pastQuestions">Past Exam Questions (PDF):</label>
       <span class="uploading-image">
         <img src="{% static 'studybetterapp/images/upload.svg' %}" alt="uploading" class="upload-logo" onclick="document.getElementById('pastQuestions').click();">
-        <input type="file" id="pastQuestions" accept=".pdf" onchange="updateFileName('pastQuestions', 'pastQuestionsName');">
+        <input type="file" id="pastQuestions" name="pastQuestions" accept=".pdf" onchange="updateFileName('pastQuestions', 'pastQuestionsName');">
       </span>
       <div id="pastQuestionsName" class="file-name"></div>
       
@@ -45,7 +45,7 @@
     {% if result_text %}
       <div class="result-output">
         <h4>Processing Result:</h4>
-        <p>{{ result_text }}</p>
+        <p>{{ result_text|safe }}</p>
       </div>
     {% endif %}
   </section>

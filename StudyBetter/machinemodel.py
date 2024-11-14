@@ -1,6 +1,7 @@
 from docx import Document
 import fitz
 import google.generativeai as genai
+import markdown
 
 genai.configure(api_key="AIzaSyCGdUUWIbK6NkLjRc2S4Y7ugtZGvFJYAC8")
 
@@ -32,4 +33,5 @@ def make_prediction(past_exam_question, lecture_material):
 
     response = chat_session.send_message(combined_input)
 
-    return response.text
+    response_in_html = markdown.markdown(response.text)
+    return response_in_html
