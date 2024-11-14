@@ -47,6 +47,14 @@
     text-align: center; 
     animation: blink 1.5s infinite; /* Blinking animation */
   }
+  .result-tag{
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    flex: none;
+    color: #6a0dad;
+
+  }
 
   label {
     margin-top: 20px;

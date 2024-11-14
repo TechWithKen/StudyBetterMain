@@ -2,7 +2,7 @@ const animatedText = document.getElementById("animated-text");
 const placeMessage = "Upload your study materials and let us "
 const messages = [
   "Upload your study materials and let us predict your exam questions!",
-  "Upload your study materials and let us summarize it for you!",
+  "Upload your study materials and let us help you practice for you examinations",
   "Upload your study materials and let us help you pass!"
 ];
 

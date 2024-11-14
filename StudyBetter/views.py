@@ -5,10 +5,9 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
-import os
 from StudyBetter.filemanipulation import get_content
 from StudyBetter.machinemodel import make_prediction
-import tempfile
+
 
 
 def index(request):

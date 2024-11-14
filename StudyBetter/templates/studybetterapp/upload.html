@@ -37,7 +37,6 @@
       <div id="pastQuestionsName" class="file-name"></div>
       
       <div class="options-upload">
-        <button type="button" onclick="downloadPDF()" class="btn-upload">Summarize</button>
         <button type="submit" class="btn-upload">Predict Exam Question</button>
       </div>
       
@@ -45,7 +44,7 @@
     {% if result_text %}
       <div class="result-output">
         <h4>Processing Result:</h4>
-        <p>{{ result_text|safe }}</p>
+        <p class="result-tag">{{ result_text|safe }}</p>
       </div>
     {% endif %}
   </section>
