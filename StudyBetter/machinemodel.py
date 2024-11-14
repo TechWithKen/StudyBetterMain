@@ -3,7 +3,7 @@ import fitz
 import google.generativeai as genai
 import markdown
 
-genai.configure(api_key="AIzaSyCGdUUWIbK6NkLjRc2S4Y7ugtZGvFJYAC8")
+genai.configure(api_key="")
 
 # Create the model
 generation_config = {
