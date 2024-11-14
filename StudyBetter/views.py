@@ -28,6 +28,7 @@ def upload(request):
         if course_material and past_questions:
             result_text = make_prediction(past_questions_string, course_material_string)
             return render(request, 'studybetterapp/upload.html', {
+                'sucess_message': 'Successful entry',
                 'result_text': result_text
             })
         else:
