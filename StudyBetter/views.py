@@ -19,11 +19,15 @@ def dashboard(request):
 
 def upload(request):
     
-    if request.method == 'POST' and request.FILES:
-        course_material = request.FILES.get('courseMaterial')
-        past_questions = request.FILES.get('pastQuestions')
+    if request.method == 'POST':
+        print(True)
+        course_material = request.FILES('courseMaterial')
+        past_questions = request.FILES('pastQuestions')
         course_material_string = get_content(course_material)
         past_questions_string = get_content(past_questions)
+        print(course_material_string)
+        print()
+        print(past_questions_string)
 
         if course_material and past_questions:
             result_text = make_prediction(past_questions_string, course_material_string)

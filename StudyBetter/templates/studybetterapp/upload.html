@@ -20,8 +20,9 @@
   </nav>
   <section class="upload-section">
     <h3>Upload Study Materials</h3>
-    <form id="uploadForm" method="post" enctype="multipart/form-data">
+    <form id="uploadForm" method="POST" action= "{% url 'login' %} " enctype="multipart/form-data">
       {% csrf_token %}
+      {{form.as_p}}
       <label for="courseMaterial">Lecture Material (PDF):</label>
       <span class="uploading-image">
         <img src="{% static 'studybetterapp/images/upload.svg' %}" alt="uploading" class="upload-logo" onclick="document.getElementById('courseMaterial').click();">
