@@ -2,7 +2,7 @@ from docx import Document
 import fitz
 import google.generativeai as genai
 
-genai.configure(api_key="")
+genai.configure(api_key="AIzaSyCGdUUWIbK6NkLjRc2S4Y7ugtZGvFJYAC8")
 
 # Create the model
 generation_config = {
