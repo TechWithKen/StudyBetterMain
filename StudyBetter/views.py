@@ -8,7 +8,8 @@ from django.core.files.storage import FileSystemStorage
 import os
 from StudyBetter.filemanipulation import get_content
 from StudyBetter.machinemodel import make_prediction
-from django.views.decorators.http import require_POST
+import tempfile
+
 
 def index(request):
     return render(request, "studybetterapp/index.html")
@@ -18,17 +19,17 @@ def dashboard(request):
 
 
 def upload(request):
-    
     if request.method == 'POST' and request.FILES:
         course_material = request.FILES['courseMaterial']
         past_questions = request.FILES['pastQuestions']
+        
         course_material_string = get_content(course_material)
         past_questions_string = get_content(past_questions)
 
         if course_material and past_questions:
             result_text = make_prediction(past_questions_string, course_material_string)
             return render(request, 'studybetterapp/upload.html', {
-                'sucess_message': 'Successful entry',
+                'success_message': 'Successful entry',
                 'result_text': result_text
             })
         else:
@@ -37,6 +38,7 @@ def upload(request):
             })
 
     return render(request, 'studybetterapp/upload.html')
+
 
 def signup(request):
     if request.method == 'POST':
