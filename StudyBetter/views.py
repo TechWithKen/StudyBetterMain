@@ -1,8 +1,14 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from django.db import IntegrityError  # remove it if you are not using it.
+from django.conf import settings
 from django.contrib.auth.models import User
+from django.core.files.storage import FileSystemStorage
+import os
+from StudyBetter.filemanipulation import get_content
+from StudyBetter.machinemodel import make_prediction
+from django.views.decorators.http import require_POST
 
 def index(request):
     return render(request, "studybetterapp/index.html")
@@ -10,7 +16,25 @@ def index(request):
 def dashboard(request): 
     return render(request, 'studybetterapp/dashboard.html')
 
+
 def upload(request):
+    
+    if request.method == 'POST' and request.FILES:
+        course_material = request.FILES.get('courseMaterial')
+        past_questions = request.FILES.get('pastQuestions')
+        course_material_string = get_content(course_material)
+        past_questions_string = get_content(past_questions)
+
+        if course_material and past_questions:
+            result_text = make_prediction(past_questions_string, course_material_string)
+            return render(request, 'studybetterapp/upload.html', {
+                'result_text': result_text
+            })
+        else:
+            return render(request, 'studybetterapp/upload.html', {
+                'error_message': 'Please upload both the course material and past questions.'
+            })
+
     return render(request, 'studybetterapp/upload.html')
 
 def signup(request):
@@ -33,10 +57,7 @@ def signup(request):
     else:
         return render(request, 'studybetterapp/signup.html')
 
-
-
-# Login view
-def login_view(request):  # Renamed to avoid conflict
+def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -44,14 +65,12 @@ def login_view(request):  # Renamed to avoid conflict
         
         if user is not None:
             login(request, user)
-            return redirect('dashboard')  # Adjust URL pattern if needed
+            return redirect('dashboard')
         else:
             messages.info(request, 'Invalid credentials')
     
     return render(request, 'studybetterapp/login.html')
 
-
-# Logout view
 def logout_view(request):
     logout(request)
     return redirect('login')

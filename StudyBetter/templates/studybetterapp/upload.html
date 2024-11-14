@@ -1,26 +1,22 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'studybetterapp/images/studybetter.png' %}">
-  <title>Upload Materials</title>
   <link rel="stylesheet" href="{% static 'studybetterapp/upload.css' %}">
   <script src="{% static 'studybetterapp/script/upload.js' %}"></script>
+  <title>Upload Materials</title>
 </head>
 <body>
   <div class="heading-name">
     <h1>STUDY BETTER</h1>
   </div>
-  <nav class="navbar">
-    <a href="{% url 'dashboard' %}" class="back-link">Back to Dashboard</a>
-    <p>Note: Please collate all materials and past questions into a single PDF file</p>
-  </nav>
+
   <section class="upload-section">
     <h3>Upload Study Materials</h3>
-    <form id="uploadForm">
+    <form id="uploadForm" enctype="multipart/form-data">
+      {% csrf_token %}
       <label for="courseMaterial">Lecture Material (PDF):</label>
       <span class="uploading-image">
         <img src="{% static 'studybetterapp/images/upload.svg' %}" alt="uploading" class="upload-logo" onclick="document.getElementById('courseMaterial').click();">
@@ -39,8 +35,10 @@
         <button type="button" onclick="downloadPDF()" class="btn-upload">Summarize</button>
         <button type="submit" class="btn-upload">Predict Exam Question</button>
       </div>
-      
     </form>
+
+    <!-- Result display section -->
+    <div id="resultOutput" class="result-output"></div>
   </section>
 </body>
 </html>
